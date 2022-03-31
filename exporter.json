@@ -90,8 +90,8 @@
         "blocks": [{
             "key": "io.supernova.supermail.cta",
             "category": "Email",
-            "title": "CTA",
-            "description": "Add CTA button",
+            "title": "Email CTA",
+            "description": "Add CTA button to your emails",
             "mode": "block",
             "properties": [{
                 "key": "ctaText",
@@ -107,8 +107,8 @@
         }, {
             "key": "io.supernova.supermail.footer",
             "category": "Email",
-            "title": "CTA",
-            "description": "Add CTA button",
+            "title": "Email Footer",
+            "description": "Add footer to your emails",
             "mode": "block",
             "properties": [{
                 "key": "showDescription",
