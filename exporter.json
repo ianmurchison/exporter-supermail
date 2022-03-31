@@ -20,7 +20,8 @@
     },
     "type": "documentation",
     "tags": [
-        "Documentation"
+        "Emails",
+        "Marketing"
     ],
     "contributes": {
         "configuration": [{
