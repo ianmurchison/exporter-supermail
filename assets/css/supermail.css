@@ -15,4 +15,17 @@
 #section-content-page {
     background-color: white;
     margin-bottom: 0px;
+    height: calc(100vh - 60px);
+}
+
+#section-content-page iframe {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 0;
+}
+
+.docs-content section:first-child {
+    padding-top: 0;
 }

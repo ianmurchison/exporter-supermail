@@ -1,0 +1,4 @@
+{[ let block = context /]}
+{[ let text = block.properties.text /]}
+
+<span class="preheader">{{ text }}</span>

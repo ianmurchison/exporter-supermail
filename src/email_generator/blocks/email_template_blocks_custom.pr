@@ -1,7 +1,11 @@
 {[ const block = context /]}
 
-{* Generate each block depending on this custom block identifier *}
+{* Generate each block depending on this custom block identifier. Custom blocks are defined in exporter.json *}
 {[ switch block.key ]}
 {[ case "io.supernova.supermail.cta" ]}
     {[ inject "page_block_custom_cta" context block /]}
+{[ case "io.supernova.supermail.preheader" ]}
+    {[ inject "page_block_custom_preheader" context block /]}
+{[ case "io.supernova.supermail.footer" ]}
+    {[ inject "page_block_custom_footer" context block /]}
 {[/]}

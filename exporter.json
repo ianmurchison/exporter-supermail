@@ -105,6 +105,18 @@
                 "label": "CTA Url"
             }]
         }, {
+            "key": "io.supernova.supermail.preheader",
+            "category": "Email",
+            "title": "Email preheader",
+            "description": "Add preview into some clients",
+            "mode": "block",
+            "properties": [{
+                "key": "Text",
+                "default": "",
+                "type": "string",
+                "label": "Preheader text to show in some clients that allow it"
+            }]
+        }, {
             "key": "io.supernova.supermail.footer",
             "category": "Email",
             "title": "Email Footer",

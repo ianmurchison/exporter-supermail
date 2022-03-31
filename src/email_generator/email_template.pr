@@ -1,1 +1,61 @@
-Content of documentation email page id {{ pageId }}
+{* Fetch page detail using pageId invocation context property *}
+{[ let page = ds.documentationPageById(pageId) /]}
+
+{* Get containing group. If the group represents tab, then use that group configuration to build header, and use its title as well. For non-tabbed pages, configuration is taken from the page object *}
+{[ let group = page.parent /]}
+{[ let groupIsTabContainer = group.groupBehavior === "Tabs" /]}
+{[ let configuration = (groupIsTabContainer ? group.configuration : page.configuration) /]}
+
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Password Reset</title>
+    <style media="all" type="text/css">
+    {[ inject "email_css" context pageId /]}
+    </style>
+
+    <!--[if gte mso 9]>
+    <xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+
+  </head>
+  <body>
+    <table border="0" cellpadding="0" cellspacing="0" class="body">
+      <tr>
+        <td>&nbsp;</td>
+        <td class="container">
+          <div class="content">
+            <!-- START CENTERED WHITE CONTAINER -->
+
+            <!-- START MAIN CONTENT AREA -->
+            <table>
+            <tr>
+              <td class="wrapper">
+                <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td>
+                    {[ for block in page.blocks ]}
+                        {[ inject "email_template_blocks_main" context block /]}
+                    {[/]}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+            <!-- END MAIN CONTENT AREA -->
+            
+        <!-- END CENTERED WHITE CONTAINER --></div>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>
