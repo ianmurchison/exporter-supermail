@@ -1,0 +1,3 @@
+{* Fetch rich from injection context, expected type 'Unordered_list' *}
+{[ const listItem = context /]}
+<li>{[ inject "page_block_rich_text" context listItem.text /]}</li>

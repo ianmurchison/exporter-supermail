@@ -1,0 +1,7 @@
+{[ const block = context /]}
+
+{* Generate each block depending on this custom block identifier *}
+{[ switch block.key ]}
+{[ case "io.supernova.supermail.cta" ]}
+    {[ inject "page_block_custom_cta" context block /]}
+{[/]}

@@ -1,0 +1,80 @@
+{* Fetch page detail using pageId invocation context property *}
+{[ let page = ds.documentationPageById(pageId) /]}
+
+{* Get containing group. If the group represents tab, then use that group configuration to build header, and use its title as well. For non-tabbed pages, configuration is taken from the page object *}
+{[ let group = page.parent /]}
+{[ let groupIsTabContainer = group.groupBehavior === "Tabs" /]}
+{[ let configuration = (groupIsTabContainer ? group.configuration : page.configuration) /]}
+
+<!DOCTYPE html>
+<html lang="en">
+{[ inject "page_head" context page /]}
+{[ const domain = ds.documentationDomain() /]}
+
+<body class="light">
+{* <body class="{{ exportConfiguration().defaultVisualMode }}"> *}
+{* {[ if exportConfiguration().showVisualModeSwitch ]} - hard-disabled for now, until full customization is in place *}
+{[ if false ]}
+{* Change theme to whatever was configured only if the configuration allows changing of themes in the first place *}
+<script>
+    <!-- This is critical to avoid flickering when switching theme, don't move down -->
+    const theme = localStorage.getItem('sn.default.theme') || 'light';
+    document.body.className = theme;
+</script>
+{[/]}
+
+{* Add search *}
+{[ inject "page_search" context page /]}
+
+<!-- Document Wrapper -->
+<div id="main-wrapper"> 
+  
+  <!-- Content -->
+  <div id="content" role="main" class="">
+  
+    {* Add content header - always enabled *}
+    {[ inject "page_body_structure_header" context page /]}
+    
+    {[ if configuration.showSidebar ]}
+      <!-- Sidebar Navigation -->
+      <div class="docs-navigation bg-sidebar">
+
+        {[ let data = { "page" : page } /]}
+        {[ const shouldShowTabbar = ds.documentationConfiguration().settings.tabbedNavigation /]}
+        {[ if ds.documentationConfiguration().settings.tabbedNavigation ]} 
+          {[ inject "page_body_structure_sidebar_tabbed" context data /]}
+        {[ else ]}
+          {[ inject "page_body_structure_sidebar_full" context data /]}
+        {[/]}
+      </div>
+    {[/]}
+    
+    <!-- Docs Content -->
+    <div class="docs-content {{ !configuration.showSidebar ? "fullscreen" : "" }}">
+
+      {* Generate page header that is present on each page *}
+      {[ inject "page_body_structure_title" context page /]}
+
+      {* Generate content for the page *}
+      <div class="container">
+        <section id="section-content-page">
+        <div class="tab-content" id="page-tab-content">
+        {[ for block in page.blocks ]}
+            {[ inject "page_body_structure_block" context block /]}
+        {[/]}
+        </div>
+        </section>
+        {[ inject "page_body_structure_content" context page /]}
+      </div>
+    </div>
+  </div>
+  <!-- Content end --> 
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- JavaScript -->
+{[ inject "page_body_scripts" context page /]}
+
+</body>
+</html>

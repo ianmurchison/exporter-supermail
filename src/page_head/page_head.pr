@@ -1,0 +1,8 @@
+{* Retrieve page object from context *}
+{[ let page = context /]}
+{[ const domain = ds.documentationDomain() /]}
+{[ const configuration = exportConfiguration() /]}
+<head>
+    {* Documentation styling *}
+    {[ inject "page_head_styles" context page /]}
+</head>

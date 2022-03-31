@@ -1,0 +1,33 @@
+{* Retrieve page object from context *}
+{[ let page = context /]}
+{[ let domain = ds.documentationDomain() /]}
+{* Generate page scripts *}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+
+<!-- Prism -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+
+<!-- Magnific Popup --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<!-- Live sandbox -->
+<script src="{{ assetUrl("js/live-sandbox.js", domain)}}"></script> 
+
+<!-- Search Support-->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.5.3"></script>
+<script src="{{ rootUrl("si.js", domain) }}"></script>  
+
+<!-- General scripts -->
+<script src="{{ assetUrl("js/functionality.js", domain)}}"></script>
+
+<!-- Versions -->
+<script>
+$(document).ready(function() {
+    loadVersions("{{ domain }}/../versions.json")
+});
+</script> 

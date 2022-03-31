@@ -1,0 +1,88 @@
+{[ let page = context /]}
+{[ let domain = ds.documentationDomain() /]}
+{[ let configuration = exportConfiguration() /]}
+{[ const shouldShowTabbar = ds.documentationConfiguration().settings.tabbedNavigation /]}
+
+<!-- Header --> 
+<header id="header" class="sticky-top"> 
+    
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg navbar-text-dark">
+
+        <!-- Sidebar Toggler -->
+        <button id="sidebarCollapse" class="toggle-navbar" type="button"></button>
+
+        <!-- Redirect to the first real page on logo click -->
+        {[ let rootGroup = ds.rootDocumentationGroup() /]}
+        {[ let topPage = firstPageFromTop(rootGroup) /]}
+        {[ let url = pageUrl(topPage, ds.documentationDomain()) /]}
+        <a href="{{ url }}">
+            <div class="logo-wrapper">
+            {* Use default Supernova logo OR custom uploaded one, if it was provided *}
+                {[ if ((configuration.headerLogo !== null) && (configuration.headerLogo.assetUrl !== null)) ]}
+                    <img class="default" src="{{ exportConfiguration().headerLogo.assetUrl }}" alt="Our Documentation" style="content: none" />
+                {[ else ]}
+                    <img class="default" alt="Our Documentation" />
+                {[/]}
+            </div>
+        </a>
+
+        <div class="container-fluid">
+
+        <!-- Potential Left Link Here -->
+        <div id="header-nav" class="navbar-collapse">
+            <ul class="navbar-nav">
+                {[ if shouldShowTabbar ]}
+                    {[ for item in rootGroup.children ]}
+                        {* Re-enable if we only want to show groups *}
+                        {* {[ if item.type.equals("Group") ]} *}
+                            {[ let activeClass = (pageOrGroupActiveInContext(page, item) === true ? "active" : "") /]}
+                            <li><a class="typographyDocsViewNavigation {{ activeClass }}" href="{{ pageUrl(item, ds.documentationDomain()) }}">{{ item.title }}</a></li>
+                        {* {[/]} *}
+                    {[/]}
+                {[/]}
+            </ul>
+
+
+            <div class="utility-nav">
+            
+            {[ if shouldShowTabbar ]}
+            <div id="mobile-menu-container" class="dropdown">
+                <button class="btn btn-secondary btn-outlined" type="button" id="mobile-menu-selector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">   
+                    
+                        {[ for item in rootGroup.children ]}
+                            {* Re-enable if we only want to show groups *}
+                            {* {[ if item.type.equals("Group") ]} *}
+                                {[ let isActive = pageOrGroupActiveInContext(page, item) /]}
+                                {[ if isActive ]}
+                                    {{ item.title }}
+                                {[/]}
+                            {* {[/]} *}
+                        {[/]}
+                </button>
+                <div class="dropdown-menu pull-right" aria-labelledby="mobile-menu-selector">
+                    {[ for item in rootGroup.children ]}
+                        {* Re-enable if we only want to show groups *}
+                        {* {[ if item.type.equals("Group") ]} *}
+                            {[ let activeClass = (pageOrGroupActiveInContext(page, item) === true ? "checked" : "") /]}
+                            <a class="dropdown-item {{ activeClass }}" href="{{ pageUrl(item, ds.documentationDomain()) }}">{{ item.title }}</a>
+                        {* {[/]} *}
+                    {[/]}
+                </div>
+            </div>
+            {[/]}
+
+            <div id="version-container" class="dropdown">
+                <button class="btn btn-secondary btn-outlined" type="button" id="version-selector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Loading
+                </button>
+                <div class="dropdown-menu pull-right" aria-labelledby="version-selector">
+                </div>
+            </div>
+            <i class="fas fa-search search"></i>
+            </div>
+            
+        </div>
+    </nav>
+</header>
+<!-- Header End -->

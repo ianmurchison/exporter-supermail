@@ -1,0 +1,29 @@
+{* Fetch block from injection context, expected type 'Heading' *}
+{[ const block = context /]}
+{[ let imgClass = "" /]}
+{[ let alignClass = "" /]}
+
+{* Create image with lightbox interaction, or ignore it if url is not set *}
+{[ if block.url ]}
+{* Align image based on the configuration *}
+{[ switch block.alignment ]}
+    {[ case "Left" ]}
+        {[ imgClass = "img-fluid" /]}
+        {[ alignClass = "text-left" /]}
+    {[ case "Center" ]}
+        {[ imgClass = "img-fluid" /]}
+        {[ alignClass = "text-center" /]}
+    {[ case "Stretch" ]}
+        {[ imgClass = "img-fluid max" /]}
+        {[ alignClass = "text-center" /]}
+{[/]}
+
+<div class="image-container {{ alignClass }}">
+    <img src="{{ block.url }}" class="{{ imgClass }}" alt="" />
+    
+{* Add caption if set *}
+{[ if block.caption ]}
+    <p>{{ block.caption }}</p>
+{[/]}
+</div>
+{[/]}

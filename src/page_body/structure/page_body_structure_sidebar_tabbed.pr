@@ -1,0 +1,56 @@
+{* Fetch the page structure *}
+{[ let rootGroup = [] /]}
+{[ let page = context.page /]}
+{[ let isRootForTab = false /]}
+
+{[ if context.groupId ]}
+    {* If we pass id of a group, we can request it directly *}
+    {[ rootGroup = ds.documentationGroupById(context.groupId) /]}
+{[ else ]}
+    {* If we pass page object, it means we are generating from root. However, our root is actually not the main root, but rather one object below it - and we want to show its name as header of the category as well as all its children *}
+    {[ rootGroup = firstSubgroupOfPage(page) /]}
+    {[ isRootForTab = true /]}
+{[/]}
+
+{[ if rootGroup ]}
+    {[ if isRootForTab ]}
+        <div class="nav-name">
+            <span class="typographyDocsViewLabelCaps">{{ rootGroup.title.uppercased() }}</span>
+        </div>
+    {[/]}
+    <ul class="nav flex-column ">
+        {[ for item in rootGroup.children ]}
+            {[ let isActive = pageOrGroupActiveInContext(page, item) /]}
+            {[ let activeClass = (isActive === true ? "active" : "") /]}
+            {[ let itemId = item.id /]}
+            {[ if item.type.equals("Page") ]}
+                <li class="nav-item"><a class="nav-link typographyDocsViewNavigation {{ activeClass }}" href="{{ pageUrl(item, ds.documentationDomain()) }}"> {{ item.title }}</a><li>
+            {[ else ]}
+                <li class="nav-item">
+                {[ let firstDescendingPage = firstPageFromTop(item) /]}
+                {* Group will either link to the first page, or be fully disabled *}
+                {[ if firstDescendingPage ]}
+                    <a class="nav-link typographyDocsViewNavigation group {{ activeClass }}" href="{{ pageUrl(firstDescendingPage, ds.documentationDomain()) }}"> {{ item.title }}</a>
+                {[ else ]}  
+                    <a class="nav-link typographyDocsViewNavigation group {{ activeClass }}"> {{ item.title }}</a>
+                {[/]}
+                {[ if isActive ]}
+                    {[ let data = { "page": page, "groupId": itemId } /]}
+                    {[ inject "page_body_structure_sidebar_tabbed" context data /]}
+                {[/]}
+                </li>
+            {[/]}
+        {[/]}
+    </ul>
+{[ else ]}
+    <div class="nav-name">
+        <span class="typographyDocsViewLabelCaps">{{ context.page.title.uppercased() }}</span>
+    </div>
+{[/]}
+
+<div class="nav-sn">
+    <a href="https://supernova.io" target="_blank">
+        {[ const domain = ds.documentationDomain() /]}
+        <img src="{{ assetUrl("logos/powered-by-supernova.png", domain) }}" title="Supernova, the most advanced design system platform" alt="Supernova, the most advanced design system platform" />
+    </a>
+</div>
