@@ -38,6 +38,38 @@ export function pageUrl(object: DocumentationPage | DocumentationGroup, prefix: 
   return path
 }
 
+/** Generate email template slug for the generated email */
+export function emailPreviewUrl(object: DocumentationPage | DocumentationGroup, prefix: string | undefined) {
+
+  let page: DocumentationPage | null = null
+  if (object.type === "Page") {
+    page = object as DocumentationPage
+  } else {
+    page = firstPageFromTop(object as DocumentationGroup)
+  }
+
+  if (!page) {
+    return ""
+  }
+
+  let pageSlug = page.userSlug ?? page.slug
+  let subpaths: Array<string> = []
+
+  // Construct group path segments
+  let parent: DocumentationGroup | null = page.parent
+  while (parent) {
+    subpaths.push(slugify(parent.title))
+    parent = parent.parent
+  }
+
+  // Remove last segment added, because we don't care about root group
+  subpaths.pop()
+
+  // Retrieve url-safe path constructed as [host][group-slugs][path-slug][.html]
+  let path = [prefix, ...subpaths.reverse(), "generated", pageSlug].join("/") + ".html"
+  return path
+}
+
 /** Create proper url that changes with the folder-depth of the documentation */
 export function rootUrl(asset: string, prefix: string | undefined) {
   let fragments = [prefix, asset]

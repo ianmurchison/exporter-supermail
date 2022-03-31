@@ -1,0 +1,18 @@
+.copy-code {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-left: 16px;
+}
+
+.docs-content>.container {}
+
+.docs-content {
+    background-color: #eaecec;
+}
+
+#section-content-page {
+    background-color: white;
+    margin-bottom: 0px;
+}

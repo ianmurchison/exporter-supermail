@@ -1,5 +1,10 @@
 {
-    "full_page.pr": {
+    "email_template.pr": {
+        "targets_ci": true,
+        "targets_documentation": true,
+        "context": "documentationPage"
+    },
+    "editor_page.pr": {
         "targets_ci": true,
         "targets_documentation": true,
         "context": "documentationPage"
