@@ -880,7 +880,7 @@ hr {
 }
 
 .nav-pills .nav-link.active {
-    background-color: rgba(15, 98, 254, 0.04) !important;
+    background-color: rgba(15, 98, 254, 0.04);
     color: #0F62FE;
     border-right: 1px solid #0F62FE;
     border-radius: 4px 0px 0px 4px;

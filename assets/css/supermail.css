@@ -6,7 +6,10 @@
     margin-left: 16px;
 }
 
-.docs-content>.container {}
+.docs-content .container {
+    display: flex;
+    justify-content: center;
+}
 
 .docs-content {
     background-color: #eaecec;
@@ -15,7 +18,7 @@
 #section-content-page {
     background-color: white;
     margin-bottom: 0px;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 70px);
 }
 
 #section-content-page iframe {
@@ -28,4 +31,42 @@
 
 .docs-content section:first-child {
     padding-top: 0;
+}
+
+.mode-selector {
+    margin-right: 32px;
+}
+
+.mode-selector li a,
+.mode-selector li a.active,
+.mode-selector li a:hover {
+    background-color: transparent !important;
+    border: 0 0 0 0;
+}
+
+.nav-pills .nav-link.active {
+    border-right: 0;
+}
+
+.mode-selector li a {
+    opacity: 0.5;
+}
+
+.mode-selector li a:hover {
+    opacity: 0.75;
+}
+
+.mode-selector li a.active {
+    background-color: transparent !important;
+    opacity: 1.0;
+}
+
+.docs-content .tab-pane> :first-child {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.docs-content .tab-pane> :last-child {
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
