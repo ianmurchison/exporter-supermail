@@ -21,6 +21,12 @@
     height: calc(100vh - 70px);
 }
 
+#section-code {
+    background-color: white;
+    margin-bottom: 0px;
+    height: calc(100vh - 70px);
+}
+
 #section-content-page iframe {
     width: 100%;
     height: 100%;
@@ -73,4 +79,14 @@
 
 #section-code {
     width: 100%;
+}
+
+pre[class*="language-"] {
+    padding: 1em;
+    margin: 8x 0 0 0;
+    overflow: auto;
+    margin: 0;
+    padding: 32px;
+    height: calc(100vh - 70px);
+    max-height: calc(100vh - 70px);
 }
