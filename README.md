@@ -7,7 +7,9 @@
 # Supermail Exporter
 
 
-This documentation exporter - originally part of April fools joke - is a showcase of just how much the documentation templates can be bent to produce various results. It allows you to use Supernova documentation editor to produce state-of-the-art html emails that you can use for your marketing. Simply install this exporter, go to your documentation settings, and change active exporter into "Supermail". From that point forward, all pages inside the targeted docs will be treated as emails, just publish and see the results!
+This documentation exporter - originally part of April fools joke - is a showcase of just how much the documentation templates can be bent to produce various results. 
+
+It allows you to use Supernova documentation editor to produce state-of-the-art html emails that you can use for your marketing. Simply install this exporter, go to your documentation settings, and change active exporter into "Supermail". From that point forward, all pages inside the targeted docs will be treated as emails, just publish and see the results!
 
 
 ## Installing

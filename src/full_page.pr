@@ -52,9 +52,6 @@
     <!-- Docs Content -->
     <div class="docs-content {{ !configuration.showSidebar ? "fullscreen" : "" }}">
 
-      {* Generate page header that is present on each page *}
-      {[ inject "page_body_structure_title" context page /]}
-
       {* Generate content for the page *}
       <div class="container">
         <section id="section-content-page">
@@ -64,7 +61,6 @@
         {[/]}
         </div>
         </section>
-        {[ inject "page_body_structure_content" context page /]}
       </div>
     </div>
   </div>
