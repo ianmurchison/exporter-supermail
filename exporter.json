@@ -131,17 +131,6 @@
                 "label": "Copyright"
             }]
         }],
-        "blockVariants": {
-            "Tabs": [{
-                    "name": "Tabs",
-                    "key": "tabs",
-                    "isDefault": true
-                },
-                {
-                    "name": "Pills",
-                    "key": "pills"
-                }
-            ]
-        }
+        "blockVariants": {}
     }
 }
