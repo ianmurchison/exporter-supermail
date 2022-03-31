@@ -87,17 +87,48 @@
             }
         ],
         "blocks": [{
-            "key": "io.supernova.documentation-main.markdown",
-            "category": "Remote Data Blocks",
-            "title": "Markdown",
-            "description": "Embed and process markdown from remote URL",
-            "icon": "icons/markdown.png",
+            "key": "io.supernova.supermail.cta",
+            "category": "Email",
+            "title": "CTA",
+            "description": "Add CTA button",
             "mode": "block",
             "properties": [{
-                "key": "markdownUrl",
+                "key": "ctaText",
                 "default": "",
                 "type": "string",
-                "label": "Markdown URL"
+                "label": "Title text"
+            }, {
+                "key": "ctaUrl",
+                "default": "",
+                "type": "string",
+                "label": "CTA Url"
+            }]
+        }, {
+            "key": "io.supernova.supermail.footer",
+            "category": "Email",
+            "title": "CTA",
+            "description": "Add CTA button",
+            "mode": "block",
+            "properties": [{
+                "key": "showDescription",
+                "default": true,
+                "type": "boolean",
+                "label": "Show Description"
+            }, {
+                "key": "showSocial",
+                "default": true,
+                "type": "boolean",
+                "label": "Show Social"
+            }, {
+                "key": "description",
+                "default": "This email was sent to you by Supernova.io because you must be into design system-related stuff. To ensure these emails end up in your inbox (not bulk or junk folders) add our email address, supernova.io to your address book.",
+                "type": "string",
+                "label": "Description"
+            }, {
+                "key": "copyright",
+                "default": "© Supernova Studio 2022",
+                "type": "string",
+                "label": "Copyright"
             }]
         }],
         "blockVariants": {
