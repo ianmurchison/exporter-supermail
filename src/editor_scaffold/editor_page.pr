@@ -66,8 +66,13 @@
           {* code of the email tab loaded dynamically through javascript *}
           <div class="tab-pane fade" id="control-code" role="tabpanel" aria-labelledby="control-code-tab">
             <div class="container">
-              <section id="section-code">
-                TODO SHOW DYNAMIC CODE
+              <section id="section-code">   
+                <pre class="code-block">
+                  <code class="language-html" id="code-inject-target">
+&lt;p&gt;The HTML &lt;code&gt;button&lt;/code&gt; tag defines a clickable button.&lt;/p&gt;
+&lt;p&gt;The CSS &lt;code&gt;background-color&lt;/code&gt; property defines the background color of an element.&lt;/p&gt;
+                  </code>
+                </pre>
               </section>  
             </div>
           </div>

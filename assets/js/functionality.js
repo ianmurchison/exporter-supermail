@@ -1,65 +1,39 @@
 /*
 ================================================================
-* Use this file to modify the JS behavior of the documentation
+* Use this file to modify the JS behavior of the email generator
 ================================================================
 */
 
-/*------------------------
-   Content menu tracking
--------------------------- */
 
-$(window).on("load", function() {
-    let sections = []
+/*-----------------------------
+    File generator
+------------------------------- */
 
-    // Create intersection observer for all sections
-    const observer = new IntersectionObserver((_entries) => {
-        /* Use this version if you want to highlight all headers in the viewport. The enabled version tracks only the top-most visible header item
-    let isSelected = false
-	for (let section of sections) {
-		let id = section.getAttribute("id")
-		console.log(id)
-		if (isElementInViewport(section) && !isSelected) {
-			document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add("active")
-			// isSelected = true
-		} else {
-			document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove("active")
-		}
-	}*/
-        let visibleSections = sections.filter((s) => isElementInViewport(s))
-        let sortedVisibleSections = visibleSections.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
-            // Unactivate all sections
-        for (let section of sections) {
-            document.querySelector(`nav li a[href="#${section.getAttribute("id")}"]`).parentElement.classList.remove("active")
-        }
-        // Activate top most visible in the viewport section
-        if (sortedVisibleSections.length > 0) {
-            document.querySelector(`nav li a[href="#${sortedVisibleSections[0].getAttribute("id")}"]`).parentElement.classList.add("active")
-        }
-    })
 
-    // Track all headers that have an `id` applied
-    document.querySelectorAll("h1[id]").forEach((section) => {
-        observer.observe(section)
-        sections.push(section)
-    })
-    document.querySelectorAll("h2[id]").forEach((section) => {
-        observer.observe(section)
-        sections.push(section)
-    })
-    document.querySelectorAll("h3[id]").forEach((section) => {
-        observer.observe(section)
-        sections.push(section)
-    })
-})
+function downloadUpdateCodeEmailRepresentation(url) {
+    fetch(url, {
+            method: "GET",
+            mode: 'cors',
+            headers: {}
+        })
+        .then(function(response) {
+            response.text().then(function(text) {
+                updateCodeEmailRepresentation(text)
+            });
+        }).catch(function(error) {
+            document.getElementById('code-inject-target').textContent = "Unable to preview email code. This is likely issue with cors policy and running this exporter from localhost. Test this functionality by publishing through the editor."
+        });
+}
 
-function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect()
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    )
+function updateCodeEmailRepresentation(representation) {
+    // Using Juice.js, we can inline the html representation so the CSS is great for any browser
+    let result = juice(representation)
+
+    // Inject the code
+    document.getElementById('code-inject-target').textContent = result
+
+    // Finally highlight code
+    Prism.highlightAll()
 }
 
 /*-----------------------------
@@ -231,24 +205,6 @@ function loadVersions(url) {
 }
 
 /*-----------------------------
-    Live sandbox manipulation
-------------------------------- */
-
-// Add listeners for actions
-window.sandboxEngine.listener = function(message) {
-    // Remove sandbox loaders when loaded correctly
-    if (message.status === "done" || message.status === "error") {
-        $(`.sandbox-loader-container[data-target="${message.sandboxId}"]`).remove()
-    }
-}
-
-// Build all sandboxes at the load of the page
-$(document).ready(function() {
-    // Build all sandboxes
-    window.sandboxEngine.buildSandboxStartingWith("sandbox")
-})
-
-/*-----------------------------
     Tooltips
 ------------------------------- */
 
@@ -272,54 +228,11 @@ $(function() {
 })
 
 /*-----------------------------
-    Storybook handling
-------------------------------- */
-
-$(document).ready(function() {
-    // Ping storybook for each frame embedding it and check if it is reachable, if so, show the content,
-    // otherwise show formatted error message
-    document.querySelectorAll("iframe.storybook").forEach((iframe) => {
-        let src = iframe.getAttribute("src")
-        fetch(src, {
-                method: "GET",
-                cache: "no-cache",
-                mode: "no-cors",
-            })
-            .then((_) => {
-                // Do nothing for the correct response, as we can't detect whether
-                // the page was truly reachable and contains storybook due to CORS protection
-            })
-            .catch((_) => {
-                // Show error for the specific frame
-                // [iframe] > storybook-container > storybook-state-wrapper > storybook-error.visible
-                iframe.parentElement.parentElement.lastElementChild.style.visibility = "visible"
-                iframe.parentElement.parentElement.firstElementChild.style.visibility = "hidden"
-            })
-    })
-})
-
-/*-----------------------------
     Sidebar menu for mobile
 ------------------------------- */
 
 $("#sidebarCollapse").on("click", function(e) {
     // Toggle the dark / light mode when clicking the mode selector
     $(".docs-navigation").toggleClass("d-inline")
-    e.preventDefault()
-})
-
-/*------------------------
-   Health status overlay
--------------------------- */
-
-$('a[data-target="health-status"]').on("click", function(e) {
-    // Toggle the overlay
-    $(".health-overlay").toggleClass("d-none")
-    e.preventDefault()
-})
-
-$(".health-overlay").on("click", function(e) {
-    // Toggle the overlay
-    $(".health-overlay").toggleClass("d-none")
     e.preventDefault()
 })
