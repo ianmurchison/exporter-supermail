@@ -15,6 +15,11 @@
 <!-- Juice -->
 <script src="{{ assetUrl("js/juice.js", domain)}}"></script>
 
+<!-- Beautify -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.2/beautify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.2/beautify-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.2/beautify-html.min.js"></script>
+
 <!-- Magnific Popup --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
@@ -34,3 +39,4 @@ $(document).ready(function() {
     downloadUpdateCodeEmailRepresentation("{{ emailPreviewUrl(page, domain) }}")
 });
 </script> 
+

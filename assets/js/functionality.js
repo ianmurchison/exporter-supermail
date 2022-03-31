@@ -29,6 +29,27 @@ function updateCodeEmailRepresentation(representation) {
     // Using Juice.js, we can inline the html representation so the CSS is great for any browser
     let result = juice(representation)
 
+    // Using Beautify.js, we can cleanup any generated html code. Tweak this if you need it!
+    result = html_beautify(result, {
+        "indent_size": "2",
+        "indent_char": " ",
+        "max_preserve_newlines": "-1",
+        "preserve_newlines": false,
+        "keep_array_indentation": false,
+        "break_chained_methods": false,
+        "indent_scripts": "keep",
+        "brace_style": "collapse",
+        "space_before_conditional": true,
+        "unescape_strings": false,
+        "jslint_happy": true,
+        "end_with_newline": false,
+        "wrap_line_length": "0",
+        "indent_inner_html": true,
+        "comma_first": false,
+        "e4x": false,
+        "indent_empty_lines": false
+    })
+
     // Inject the code
     document.getElementById('code-inject-target').textContent = result
 
