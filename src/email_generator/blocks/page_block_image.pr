@@ -1,3 +1,5 @@
+{[ let block = context /]}
+
 <img src="{{ block.url }}" />
     
 {* Add caption if set *}
