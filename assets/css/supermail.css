@@ -90,3 +90,7 @@ pre[class*="language-"] {
     height: calc(100vh - 70px);
     max-height: calc(100vh - 70px);
 }
+
+#section-content-page.mobile {
+    max-width: 300px;
+}

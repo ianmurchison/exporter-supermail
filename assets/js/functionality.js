@@ -257,3 +257,18 @@ $("#sidebarCollapse").on("click", function(e) {
     $(".docs-navigation").toggleClass("d-inline")
     e.preventDefault()
 })
+
+
+/*-----------------------------
+    Sizing
+------------------------------- */
+
+$("#control-desktop").on("click", function(e) {
+    // Toggle the dark / light mode when clicking the mode selector
+    $("#section-content-page").removeClass("mobile")
+})
+
+$("#control-mobile").on("click", function(e) {
+    // Toggle the dark / light mode when clicking the mode selector
+    $("#section-content-page").addClass("mobile")
+})
