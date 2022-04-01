@@ -3,7 +3,8 @@
 
 {* Generate rich text *}
 {[ if (textBlockPlainText(block).count() === 0) ]}
-    <p>&nbsp;</p>
+    {* Uncomment this line if you want empty lines to show *}
+    {*<p>&nbsp;</p>*}
 {[ else ]}
     <p>{[ inject "page_block_rich_text" context block.text /]}</p>
 {[/]}

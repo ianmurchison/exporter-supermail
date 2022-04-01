@@ -38,13 +38,13 @@
 ------------------------------------- */
     
     body {
-      background-color: #f6f6f6;
+      background-color: #ffffff;
       margin: 0;
       padding: 0;
     }
     
     .body {
-      background-color: #f6f6f6;
+      background-color: #ffffff;
       width: 100%;
     }
     
@@ -95,9 +95,13 @@
     }
     
     .header {
-      margin-bottom: 24px;
+      margin-bottom: 0px;
       margin-top: 0;
       width: 100%;
+    }
+
+    .header img {
+      border: 0;
     }
     
     .header > table {
@@ -109,6 +113,8 @@
       padding-top: 24px;
       text-align: center;
       width: 100%;
+      max-width: 550px;
+      margin: auto;
     }
     
     .footer td,
@@ -203,47 +209,44 @@
     
     h1,
     h2,
-    h3,
-    h4 {
-      color: #222222;
+    h3 {
+      color: #141618;
       font-family: Helvetica, sans-serif;
       font-weight: 400;
       line-height: 1.4;
-      margin: 0;
+      margin: 24px 0px 16px 0px;
     }
+
     
     h1 {
-      font-size: 36px;
-      font-weight: 300;
-      margin-bottom: 24px;
-      text-align: center;
-      text-transform: capitalize;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 36px;
     }
     
     h2 {
-      font-size: 28px;
-      margin-bottom: 16px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
     }
     
     h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
     }
     
-    h4 {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
     
     p,
     ul,
     ol {
       font-family: Helvetica, sans-serif;
-      font-size: 14px;
-      font-weight: normal;
       margin: 0;
       margin-bottom: 16px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
     }
     
     p li,
@@ -261,9 +264,20 @@
       padding: 0;
       text-indent: 0;
     }
+
+    h1,
+    h2,
+    h3,
+    p,
+    p li,
+    ul li,
+    ol li {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
     
     a {
-      color: #3498db;
+      color: #4589ff;
       text-decoration: underline;
     }
     /* -------------------------------------
@@ -274,6 +288,7 @@
       box-sizing: border-box;
       min-width: 100% !important;
       width: 100%;
+      padding: 16px 0px;
     }
     
     .btn > tbody > tr > td {
@@ -281,7 +296,7 @@
     }
     
     .btn table {
-      width: auto;
+      width: 100%;
     }
     
     .btn table td {
@@ -292,10 +307,10 @@
     
     .btn a {
       background-color: #ffffff;
-      border: solid 2px #3498db;
+      border: solid 2px #4589ff;
       border-radius: 4px;
       box-sizing: border-box;
-      color: #3498db;
+      color: #4589ff;
       cursor: pointer;
       display: inline-block;
       font-size: 14px;
@@ -307,22 +322,25 @@
     }
     
     .btn-primary table td {
-      background-color: #3498db;
+      margin: 16px 0;
+      background-color: #4589ff;
     }
     
     .btn-primary a {
-      background-color: #3498db;
-      border-color: #3498db;
+      background-color: #4589ff;
+      border-color: #4589ff;
       color: #ffffff;
+      width: 100%;
+      margin: 0;
     }
     
     @media all {
       .btn-primary table td:hover {
-        background-color: #34495e !important;
+        background-color: #2d6bda !important;
       }
       .btn-primary a:hover {
-        background-color: #34495e !important;
-        border-color: #34495e !important;
+        background-color: #2d6bda !important;
+        border-color: #2d6bda !important;
       }
     }
     
@@ -332,8 +350,8 @@
     
     .btn-secondary a {
       background-color: transparent;
-      border-color: #3498db;
-      color: #3498db;
+      border-color: #4589ff;
+      color: #4589ff;
     }
     
     @media all {
@@ -352,6 +370,20 @@
       border-color: #ffffff;
       color: #ffffff;
     }
+    /* -------------------------------------
+    IMAGES
+------------------------------------- */
+    table img {
+      border: 1px solid #DCE0E4;
+      box-sizing: border-box;
+      filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.04));
+      border-radius: 8px;
+    }
+
+    p.subtle {
+      color: #7e7e7e;
+    }
+
     /* -------------------------------------
     ALERTS
 ------------------------------------- */
@@ -534,7 +566,7 @@
     }
     
     .text-link {
-      color: #3498db !important;
+      color: #4589ff !important;
       text-decoration: underline !important;
     }
     

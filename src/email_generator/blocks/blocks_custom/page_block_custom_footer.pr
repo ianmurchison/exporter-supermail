@@ -4,16 +4,17 @@
     <table border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td class="content-block">
-        <span class="apple-link">Supernova address</span>
-        <br> Don't like these emails? <a href="https://supernova.io/blog">Unsubscribe</a>.
+        <span class="apple-link">This email was sent to you by Supernova.io because you must be into design system-related stuff. To ensure these emails end up in your inbox (not bulk or junk folders) add our email address, <a href="https://supernova.io/" target="_blank">Supernova.io</a> to your address book.</span>
+        <br />
+        <br />
+        <a href="https://supernova.io/privacy">Privacy Policy</a> | <a href="[unsubscribe]">Unsubscribe</a>.
         </td>
     </tr>
     <tr>
         <td class="content-block powered-by">
-            Powered by <a href="https://supernova.io">Supernova.io</a>.
+            Powered by <a href="https://supernova.io" target="_blank">© Supernova Studio 2022</a>.
         </td>
     </tr>
     </table>
 </div>
-
 <!-- END FOOTER -->

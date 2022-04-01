@@ -121,6 +121,11 @@
                 "type": "boolean",
                 "label": "Show logo"
             }, {
+                "key": "logoUrl",
+                "default": "https://supernova.io/",
+                "type": "string",
+                "label": "Show logo"
+            }, {
                 "key": "logoImage",
                 "type": "image",
                 "label": "Logo"

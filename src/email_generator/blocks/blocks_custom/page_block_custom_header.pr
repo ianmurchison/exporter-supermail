@@ -1,12 +1,19 @@
-
+{[ let block = context /]}
+{[ if block.properties.showLogo ]}
+{[ log block /]}
 <!-- START HEADER -->
 <div class="header">
     <table border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td class="align-center">
-            <a href="https://supernova.io" target="_blank"><img src="img/logo.png" width="70" height="41" alt="Logo" align="center"></a>
+            <a href="{{ (block.properties.logoUrl ? block.properties.logoUrl : "#") }}" target="_blank">
+                {[ let logoUrl = ((block.properties.logoImage && block.properties.logoImage.assetUrl) ? block.properties.logoImage.assetUrl : "") /]}
+                <img src="{{ logoUrl }}" width="146" height="28" alt="Logo" align="center">
+            </a>
         </td>
     </tr>
     </table>
 </div>
 <!-- END HEADER -->
+
+{[/]}
