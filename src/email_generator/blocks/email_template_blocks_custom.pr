@@ -4,8 +4,13 @@
 {[ switch block.key ]}
 {[ case "io.supernova.supermail.cta" ]}
     {[ inject "page_block_custom_cta" context block /]}
-{[ case "io.supernova.supermail.preheader" ]}
-    {[ inject "page_block_custom_preheader" context block /]}
+{[ case "io.supernova.supermail.header" ]}
+    {* {[ inject "page_block_custom_header" context block /]} *}
+    {* Header is not exported. Instead, if header is detected, it is selectively extracted and placed to specific place inside the exported email *}
 {[ case "io.supernova.supermail.footer" ]}
-    {[ inject "page_block_custom_footer" context block /]}
+    {* {[ inject "page_block_custom_footer" context block /]} *}
+    {* Footer is not exported. Instead, if footer is detected, it is selectively extracted and placed to a specific place inside the exported email *}
+{[ default ]}
+    {* Unsupported custom blocks should not be used inside documentation editor but we should let people know *}
+    <p style="color: red; font-weight: bold;">! Error: You used custom block of type {{ block.key }} which is not supported for email! You can however add support for it yourself by forking and modifying the exporter, should you need them!</p>
 {[/]}

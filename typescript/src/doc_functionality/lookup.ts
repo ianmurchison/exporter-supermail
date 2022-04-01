@@ -92,3 +92,30 @@ export function previousPage(page: DocumentationPage, documentationRoot: Documen
   }
   return null
 }
+
+/** Find first header block */
+export function firstHeaderBlock(page: DocumentationPage): DocumentationPageBlock | null {
+
+  for (let block of page.blocks) {
+    if (block.type === "Custom") {
+      if ((block as any).key === "io.supernova.supermail.header") {
+        return block
+      }
+    }
+  }
+  return null
+}
+
+
+/** Find first header block */
+export function firstFooterBlock(page: DocumentationPage): DocumentationPageBlock | null {
+
+  for (let block of page.blocks) {
+    if (block.type === "Custom") {
+      if ((block as any).key === "io.supernova.supermail.footer") {
+        return block
+      }
+    }
+  }
+  return null
+}

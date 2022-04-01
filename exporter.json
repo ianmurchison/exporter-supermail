@@ -105,22 +105,31 @@
                 "label": "CTA Url"
             }]
         }, {
-            "key": "io.supernova.supermail.preheader",
+            "key": "io.supernova.supermail.header",
             "category": "Email",
-            "title": "Email preheader",
-            "description": "Add preview into some clients",
+            "title": "Email Header",
+            "description": "Add basic configuration to this email",
             "mode": "block",
             "properties": [{
-                "key": "Text",
+                "key": "title",
                 "default": "",
                 "type": "string",
-                "label": "Preheader text to show in some clients that allow it"
+                "label": "title"
+            }, {
+                "key": "showLogo",
+                "default": "",
+                "type": "boolean",
+                "label": "Show logo"
+            }, {
+                "key": "logoImage",
+                "type": "image",
+                "label": "Logo"
             }]
         }, {
             "key": "io.supernova.supermail.footer",
             "category": "Email",
             "title": "Email Footer",
-            "description": "Add footer to your emails",
+            "description": "Add footer to this email",
             "mode": "block",
             "properties": [{
                 "key": "showDescription",

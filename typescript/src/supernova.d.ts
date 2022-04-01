@@ -57,6 +57,7 @@ declare global {
     | "YoutubeEmbed"
     | "Embed"
     | "FigmaFrames"
+    | "Custom"
 
   type RichTextSpanAttributeType = "Bold" | "Italic" | "Link" | "Strikethrough" | "Code"
 

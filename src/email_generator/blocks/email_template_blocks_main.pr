@@ -8,28 +8,21 @@
         {[ inject "page_block_heading" context block /]}
     {[ case "UnorderedList" ]}
         {[ inject "page_block_unordered_list" context block /]}
-    {[ case "OrderedList" ]}
-        {[ inject "page_block_ordered_list" context block /]}
-    {[ case "Quote" ]}
-        {[ inject "page_block_quote" context block /]}
-    {[ case "Callout" ]}
-        {[ inject "page_block_callout" context block /]}
     {[ case "Divider" ]}
         {[ inject "page_block_divider" context block /]}
     {[ case "Image" ]}
         {[ inject "page_block_image" context block /]}
     {[ case "FigmaFrames" ]}
         {[ inject "page_block_frames" context block /]}
-    {[ case "Shortcuts" ]}
-        {[ inject "page_block_shortcuts" context block /]}
-    {[ case "Code" ]}
-        {[ inject "page_block_code" context block /]}
     {[ case "Custom" ]}
         {* For custom blocks, use custom handling with different template *}
         {[ inject "email_template_blocks_custom" context block /]}
         {* 
            Note all other blocks not mentioned there can't be used with email generator
         *}
+    {[ default ]}
+    {* Unsupported blocks should not be used inside documentation editor but we should let people know *}
+    <p style="color: red; font-weight: bold;">! Error: You used block of type {{ block.type }} which is not supported for email! You can however add support for it yourself by forking and modifying the exporter, should you need them!</p>
 {[/]}
 
 {* Note - child blocks are completely ignored, don't use it inside editor *}

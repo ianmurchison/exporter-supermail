@@ -33,6 +33,10 @@
         <td class="container">
           <div class="content">
             <!-- START CENTERED WHITE CONTAINER -->
+            {[ let headerBlock = firstHeaderBlock(page) /]}
+            {[ if headerBlock ]}
+                {[ inject "page_block_custom_header" context headerBlock /]}
+            {[/]}
 
             <!-- START MAIN CONTENT AREA -->
             <table>
@@ -51,6 +55,11 @@
             </tr>
             </table>
             <!-- END MAIN CONTENT AREA -->
+
+            {[ let footerBlock = firstFooterBlock(page) /]}
+            {[ if footerBlock ]}
+                {[ inject "page_block_custom_footer" context footerBlock /]}
+            {[/]}
             
         <!-- END CENTERED WHITE CONTAINER --></div>
         </td>

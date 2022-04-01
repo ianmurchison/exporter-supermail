@@ -3,7 +3,7 @@
 // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 // MARK: - Imports
 
-import { firstPageFromTop, firstSubgroupOfPage, flattenedPageStructure, nextPage, pageOrGroupActiveInContext, previousPage } from "./doc_functionality/lookup"
+import { firstFooterBlock, firstHeaderBlock, firstPageFromTop, firstSubgroupOfPage, flattenedPageStructure, nextPage, pageOrGroupActiveInContext, previousPage } from "./doc_functionality/lookup"
 import { htmlSafeString, htmlSafeUrl } from "./doc_functionality/sandbox"
 import { buildSearchIndexJSON } from "./doc_functionality/search"
 import { highlightSafeString } from "./doc_functionality/string_utils"
@@ -20,6 +20,8 @@ Pulsar.registerFunction("flattenedPageStructure", flattenedPageStructure)
 Pulsar.registerFunction("firstPageFromTop", firstPageFromTop)
 Pulsar.registerFunction("previousPage", previousPage)
 Pulsar.registerFunction("nextPage", nextPage)
+Pulsar.registerFunction("firstHeaderBlock", firstHeaderBlock)
+Pulsar.registerFunction("firstFooterBlock", firstFooterBlock)
 
 /* String utilities */
 Pulsar.registerFunction("highlightSafeString", highlightSafeString)
