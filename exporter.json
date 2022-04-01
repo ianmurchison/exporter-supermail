@@ -114,10 +114,10 @@
                 "key": "title",
                 "default": "",
                 "type": "string",
-                "label": "title"
+                "label": "Title"
             }, {
                 "key": "showLogo",
-                "default": "",
+                "default": true,
                 "type": "boolean",
                 "label": "Show logo"
             }, {
