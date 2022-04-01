@@ -9,6 +9,7 @@
     File generator
 ------------------------------- */
 
+var savedPageCode = "";
 
 function downloadUpdateCodeEmailRepresentation(url) {
     fetch(url, {
@@ -49,6 +50,9 @@ function updateCodeEmailRepresentation(representation) {
         "e4x": false,
         "indent_empty_lines": false
     })
+
+    // Store for copying
+    savedPageCode = result;
 
     // Inject the code
     document.getElementById('code-inject-target').textContent = result
@@ -271,4 +275,14 @@ $("#control-desktop").on("click", function(e) {
 $("#control-mobile").on("click", function(e) {
     // Toggle the dark / light mode when clicking the mode selector
     $("#section-content-page").addClass("mobile")
+})
+
+
+/*-----------------------------
+    Code copy
+------------------------------- */
+
+$("#copy-code").on("click", function(e) {
+    // Toggle the dark / light mode when clicking the mode selector
+    navigator.clipboard.writeText(savedPageCode);
 })
