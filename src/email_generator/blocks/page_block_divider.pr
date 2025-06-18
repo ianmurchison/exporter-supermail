@@ -2,4 +2,4 @@
 {[ const block = context /]}
 
 {* Create divider element *}
-<hr class="divider">
+<hr class="divider" style="border-top: 1px solid #C3C3C3;margin-top: 48px; margin-bottom: 48px;">
