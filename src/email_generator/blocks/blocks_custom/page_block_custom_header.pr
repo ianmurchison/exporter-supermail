@@ -3,13 +3,31 @@
 {[ log block /]}
 <!-- START HEADER -->
 <div class="header">
-    <table border="0" cellpadding="0" cellspacing="0">
-    <tr>
-        <td class="align-center" top-margin="100">
-            <a href="[viewonline]"; target="_blank"; urlcode="[=Link1]; text-decoration:underline>view in browser</a>
-        </td>
-    </tr>
-    </table>
+<table border="0" cellpadding="0" cellspacing="0" id="component_8laeuou8gzh" role="presentation" width="100%">
+    <tbody>
+        <tr>
+            <td id="wrapper_8laeuou8gzh" style="padding-top:0; padding-bottom:0;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                <tbody>
+                    <tr>
+                        <td id="container_8laeuou8gzh" style="padding-top:10px; padding-bottom:4px; padding-left:10px; padding-right:10px; ">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td id="content_8laeuou8gzh" style="color:#000000; font-family:'Artifakt ElementOfc',ArtifaktElement,Calibri,s,sans-serif; font-size:11px; text-align:right; line-height:145%; " valign="top">
+                                    <div style="text-align: center;"><span style="color:#A9A9A9;">Sent to&nbsp;Engineering Extended, XD, Weave News, Engineering.&nbsp;</span>&nbsp;<a href="[viewonline]" style="color:#010101; text-decoration:underline;" target="_blank" urlcode="[=Link1]">view in browser</a></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
 </div>
 <!-- END HEADER -->
 
