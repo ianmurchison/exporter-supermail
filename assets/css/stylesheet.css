@@ -298,7 +298,9 @@ hr {
 /*=== 3.3 Section Divider ===*/
 
 .divider {
-    margin: 4rem 0;
+    color: #C3C3C3;
+    margin-top: 48px; 
+    margin-bottom: 48px;
 }
 
 
