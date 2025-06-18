@@ -1,5 +1,5 @@
 {[ let block = context /]}
-{[ if block.properties.showLogo ]}
+
 {[ log block /]}
 <!-- START HEADER -->
 <div class="header">
