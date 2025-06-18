@@ -1,12 +1,12 @@
 {
     "id": "adsk.supermail",
-    "name": "Supermail",
+    "name": "ADSK Supermail",
     "description": "Documentation exporter that shows power of customization of Supernova documentation templates. Create marketing emails right using your favorite design system documentation editor!",
-    "author": "Jiri Trecak",
+    "author": "Ian Murchison",
     "organization": "Supernova",
     "source_dir": "src",
     "assets_dir": "assets",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "usesBrands": false,
     "language": "pulsar",
     "config": {
